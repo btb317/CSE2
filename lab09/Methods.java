@@ -5,20 +5,27 @@
 //Prof Chen
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Methods {
     
     public static void main(String[] args) {
         
-        Random rng = new Random();
-        
-        
+        Scanner scan = new Scanner(System.in);
+        String sentence;
+        int answer;
+        do {
+            sentence = "The "+adj()+" "+adj()+" "+sub()+" "+verb()+" the "+adj()+" "+obj()+".";
+            System.out.println(sentence);
+            System.out.print("Would you like another sentence? Type 1 for yes: ");
+            answer = scan.nextInt();
+        } while(answer == 1);
     }
     
     public static String adj() {
         Random rng = new Random();
         int rand = rng.nextInt(10);
-        String word;
+        String word = "";
         switch (rand) {
             case 0:
                 word = "bouncy";
@@ -57,7 +64,7 @@ public class Methods {
     public static String sub() {
         Random rng = new Random();
         int rand = rng.nextInt(10);
-        String word;
+        String word = "";
         switch (rand) {
             case 0:
                 word = "bear";
@@ -96,37 +103,37 @@ public class Methods {
     public static String verb() {
         Random rng = new Random();
         int rand = rng.nextInt(10);
-        String word;
+        String word = "";
         switch (rand) {
             case 0:
                 word = "bought";
                 break;
             case 1:
-                word = "";
+                word = "bit";
                 break;
             case 2:
-                word = "";
+                word = "burned";
                 break;
             case 3:
-                word = "";
+                word = "boiled";
                 break;
             case 4:
-                word = "";
+                word = "blessed";
                 break;
             case 5:
-                word = "";
+                word = "borrowed";
                 break;
             case 6:
-                word = "";
+                word = "broke";
                 break;
             case 7:
-                word = "";
+                word = "brushed";
                 break;
             case 8:
-                word = "";
+                word = "buried";
                 break;
             case 9:
-                word = "";
+                word = "believed";
                 break;
         }
         return word;
@@ -135,37 +142,37 @@ public class Methods {
     public static String obj() {
         Random rng = new Random();
         int rand = rng.nextInt(10);
-        String word;
+        String word = "";
         switch (rand) {
             case 0:
-                word = "";
+                word = "ball";
                 break;
             case 1:
-                word = "";
+                word = "bucket";
                 break;
             case 2:
-                word = "";
+                word = "basket";
                 break;
             case 3:
-                word = "";
+                word = "bubble";
                 break;
             case 4:
-                word = "";
+                word = "bush";
                 break;
             case 5:
-                word = "";
+                word = "boots";
                 break;
             case 6:
-                word = "";
+                word = "bread";
                 break;
             case 7:
-                word = "";
+                word = "brick";
                 break;
             case 8:
-                word = "";
+                word = "bike";
                 break;
             case 9:
-                word = "";
+                word = "banana";
                 break;
         }
         return word;

@@ -60,8 +60,12 @@ public class FourDwin {
         }
         
         printArray(array);
-        statArray(array);
-        //System.out.println(min3d(array[0]));
+        //statArray(array);
+        System.out.println(min3d(array[0])+"\t"+numElements(array[0]));
+        System.out.println(min3d(array[1])+"\t"+numElements(array[1]));
+        System.out.println(min3d(array[2])+"\t"+numElements(array[2]));
+        double[][][][] sortedArray = sort4DArray(array);
+        printArray(sortedArray);
     }
     
     public static void printArray(double[][][][] array) {
@@ -134,19 +138,25 @@ public class FourDwin {
         return min;
     }
     
-    /*
     public static double[][][][] sort4DArray(double[][][][] array) {
-        double key, j;
+        double key, keyMin;
+        int j;
         double[][][] temp;
         for (int i=1; i<array.length; i++) {
-            key = min3d(array[i]);
+            key = numElements(array[i]);
             temp = array[i];
+            keyMin = min3d(array[i]);
             j = i - 1;
-            while (j>-1 && min3d(array[j]) > key) {
+            while (j>-1 && numElements(array[j]) > key) {
+                array[j + 1] = array[j];
+                j--;
+            }
+            if (j>-1 && numElements(array[j]) == key && min3d(array[j]) > keyMin) {
                 array[j + 1] = array[j];
                 j--;
             }
             array[j + 1] = temp;
         }
-    }*/
+        return array;
+    }
 }

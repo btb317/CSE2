@@ -59,13 +59,13 @@ public class FourDwin {
             }
         }
         
+        System.out.println("Original array:");
         printArray(array);
-        //statArray(array);
-        System.out.println(min3d(array[0])+"\t"+numElements(array[0]));
-        System.out.println(min3d(array[1])+"\t"+numElements(array[1]));
-        System.out.println(min3d(array[2])+"\t"+numElements(array[2]));
-        double[][][][] sortedArray = sort4DArray(array);
+        System.out.println("\nSorted Array:");
+        double[][][][] sortedArray = sort4DArray(array);    //SORT IS NOT WORKING, I DON'T KNOW WHY...
         printArray(sortedArray);
+        System.out.println("");
+        statArray(sortedArray);
     }
     
     public static void printArray(double[][][][] array) {
@@ -157,6 +157,39 @@ public class FourDwin {
             }
             array[j + 1] = temp;
         }
+        
+        for (int i=0; i<array.length; i++) {
+            array[i] = sort3DArray(array[i]);
+        }
+        
         return array;
+    }
+    
+    public static double[][][] sort3DArray(double[][][] array) {
+        int minIndex=0;
+        double temp = 0;
+        for (int i=0; i<array.length; i++) {
+            for (int j=0; j<array[i].length; j++) {
+                for (int k=0; k<array[i][j].length; k++) {
+                    minIndex = minFind(array[i][j]);
+                    temp = array[i][j][k];
+                    array[i][j][k] = array[i][j][minIndex];
+                    array[i][j][minIndex] = temp;
+                }
+            }
+        }
+        return array;
+    }
+    
+    public static int minFind(double[] array) {
+        //finds the element with the lowest value in a portion of an array
+        //when there are multiple, defaults to lowest index
+        int j = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < array[j]) {
+                j = i;
+            }
+        }
+        return j;
     }
 }

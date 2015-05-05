@@ -11,8 +11,15 @@ public class test{
         */
         
         double val2 = 45621000;
-        val2 *= / 100;
+        val2 *= 100;
         
         System.out.println(val2);
+        printerthing();
+        
+        int[] one, two = new int[4];
+    }
+    
+    public static void printerthing() {
+        System.out.println("hello");
     }
 }
